@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Form.css";
+// import "./Form.css";
 
 const ContactForm = () => {
   const [contactType, setContactType] = useState('');
@@ -13,56 +13,62 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="contact-form">
-      <div className="form-container">
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="firstName">First Name</label><br></br>
-            <input
-              type="text"
-              id="firstName"
-              value={firstName}
-              onChange={(event) => setFirstName(event.target.value)}
-            />
-          </div>
-          <div className="form-group1">
-            <label htmlFor="lastName">Last Name</label><br></br>
-            <input
-              type="text"
-              id="lastName"
-              value={lastName}
-              onChange={(event) => setLastName(event.target.value)}
-            />
-          </div>
+    <div className="container  mt-5 ">
+      <div className='card'>
+        <div className='card-body'>
+        <div className="row mt-4">
+            <div className="form-group col-sm-6">
+                              <label for="inputFirstName">First Name</label>
+                              <input type="FirstName"
+                               class="form-control" 
+                               id="inputFirstName"
+                                value={firstName}
+                               onChange={(event) => setFirstName(event.target.value)}
+                                />
+            </div>
+            <div className="form-group col-sm-6">
+                              <label for="inputLastName">Last Name</label>
+                              <input type="FirstName"
+                               class="form-control" 
+                               id="inputLastName"
+                                value={lastName}
+                               onChange={(event) => setLastName(event.target.value)}
+                                />
+            </div>
         </div>
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="contactType">How should we contact you?</label><br></br>
-            <label>
-              <input
-                type="radio"
-                name="contactType"
+        <div className="row mt-4">
+        <div className="form-group col-sm-6">
+            <label For="contactType">How should we contact you?</label><br></br>
+           <div class="custom-control custom-radio custom-control-inline">
+            <input
+             type="radio" 
+             id="customRadio1" 
+             name="customRadio" 
+             class="custom-control-input"
                 value="phone"
                 checked={contactType === 'phone'}
                 onChange={handleContactTypeChange}
-              />
-              Phone
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="contactType"
-                value="email"
-                checked={contactType === 'email'}
-                onChange={handleContactTypeChange}
-              />
-              Email
-            </label>
+             />
+            <label class="custom-control-label" for="customRadio1">Phone</label>
           </div>
+            <div class="custom-control custom-radio custom-control-inline">
+            <input
+             type="radio" 
+             id="customRadio2" 
+             name="customRadio" 
+             className="custom-control-input"
+             value="email"
+             checked={contactType === 'email'}
+              onChange={handleContactTypeChange}
+             />
+            <label class="custom-control-label" for="customRadio2">Email</label>
+          </div>
+          </div>
+          <div className="form-group col-sm-6">
           {contactType === 'phone' && (
-            <div className="form-group1">
+            <div className="">
               <label htmlFor="phone">Phone Number</label><br></br>
-              <input
+              <input className='form-control'
                 type="text"
                 id="phone"
                 value={phone}
@@ -71,9 +77,9 @@ const ContactForm = () => {
             </div>
           )}
           {contactType === 'email' && (
-            <div className="form-group1">
+            <div className="">
               <label htmlFor="email">Email Address</label><br></br>
-              <input
+              <input className='form-control'
                 type="email"
                 id="email"
                 value={email}
@@ -82,8 +88,10 @@ const ContactForm = () => {
             </div>
           )}
         </div>
+        </div>
+        </div>
+        </div>
       </div>
-    </div>
   );
 };
 
